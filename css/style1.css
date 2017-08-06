@@ -1,0 +1,8 @@
+body.jumbotron{
+background:#e0eeee ;
+}
+
+div.content {
+	min-height: 400px;
+	background:#76eec6;
+}
