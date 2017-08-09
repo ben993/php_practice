@@ -5,7 +5,7 @@ require_once 'php/db.php';
 //載入 functions.php 檔案，透過裡面的方法取得資料庫的資料
 require_once 'php/functions.php';
 
-$article = get_article($_GET['p']);
+$article = get_article();
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -23,28 +23,7 @@ $article = get_article($_GET['p']);
 
 	<body>
 		<!-- 頁首 -->
-		
-		<div class="jumbotron">
-			<div class="container">
-				<!-- 建立第一個 row 空間，裡面準備放格線系統 -->
-				<div class="row">
-					<!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
-					<div class="col-xs-12">
-						<!--網站標題-->
-						<h1 class="text-center">作品網站</h1>
-						
-						<!-- 選單 -->
-						<ul class="nav nav-pills">
-							<li role="presentation"><a href="index.php">首頁</a></li>
-							<li role="presentation" class="active"><a href="article_list.php">所有文章</a></li>
-							<li role="presentation"><a href="work_list.php">所有作品</a></li>
-							<li role="presentation"><a href="about.php">關於我們</a></li>
-							<li role="presentation"><a href="register.php.php">註冊</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include_once 'menu.php'; ?>
 		<!-- 網站內容 -->
 		<div class="content">
 			<div class="container">
@@ -56,7 +35,7 @@ $article = get_article($_GET['p']);
 							<h1><?php echo $article['title']; ?></h1>
 							<hr>
 							分類：<?php echo $article['category']; ?> 發布時間：<?php echo $article['create_date']; ?>
-							<h3><?php echo $article['content']; ?></h3>
+							<?php echo $article['content']; ?>
 						<?php else: ?>
 							<h3 class="text-center">無此篇文章</h3>
 					    <?php endif; ?>
@@ -66,19 +45,6 @@ $article = get_article($_GET['p']);
 		</div>
 		
 		<!-- 頁底 -->
-		<div class="footer">
-			<div class="container">
-				<!-- 建立第一個 row 空間，裡面準備放格線系統 -->
-				<div class="row">
-					<!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
-					<div class="col-xs-12">
-						<p class="text-center">
-							&copy; <?php echo date("Y")?> Will.
-						</p>
-					</div>
-				</div>
-			</div>
-			
-		</div>
+    <?php include_once 'footer.php'; ?>
 	</body>
 </html>

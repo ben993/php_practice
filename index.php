@@ -55,6 +55,7 @@
               <li role="presentation"><a href="about.php">Profile</a></li>
               <li role="presentation"><a href="mailto:tn00371361@gmail.com">Messages <span class="badge">10</span></a></li>
               </ul>
+              <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/20622148_1693250404021558_1391393867026271937_n.jpg?oh=277cdb261fa0851330759b5970bf6493&oe=5A28AD0C" alt="ME" style="width:350px;height:500px;">
           </div>
         </div>
       </div>

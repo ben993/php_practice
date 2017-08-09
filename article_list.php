@@ -23,28 +23,7 @@ $datas = get_publish_article();
 
 	<body>
 		<!-- 頁首 -->
-		
-		<div class="jumbotron">
-			<div class="container">
-				<!-- 建立第一個 row 空間，裡面準備放格線系統 -->
-				<div class="row">
-					<!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
-					<div class="col-xs-12">
-						<!--網站標題-->
-						<h1 class="text-center">作品網站</h1>
-						
-						<!-- 選單 -->
-						<ul class="nav nav-pills">
-							<li role="presentation"><a href="index.php">首頁</a></li>
-							<li role="presentation" class="active"><a href="article_list.php">所有文章</a></li>
-							<li role="presentation"><a href="work_list.php">所有作品</a></li>
-							<li role="presentation"><a href="about.php">關於我們</a></li>
-							<li role="presentation"><a href="register.php">註冊</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include_once 'menu.php'; ?>
 		<!-- 網站內容 -->
 		<div class="content">
 			<div class="container">
@@ -59,10 +38,10 @@ $datas = get_publish_article();
 								//去除所有html標籤
 								$abstract = strip_tags($row['content']);
 								//取得100個字
-								$abstract = mb_substr($abstract, 0, 100, "UTF-8") 
+								$abstract = mb_substr($abstract, 0, 500, "UTF-8") 
 							?>
 							<!-- 使用 bootstrap 的 panel 來呈現 http://getbootstrap.com/components/#panels-->
-							<div class="panel panel-success">
+							<div class="panel panel-primary">
 						        <div class="panel-heading">
 						            <h3 class="panel-title">
 						            	<a href="article.php?p=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
@@ -73,7 +52,7 @@ $datas = get_publish_article();
 						        		<span class="label label-info"><?php echo $row['category']; ?></span>&nbsp;
 						        		<span class="label label-danger"><?php echo $row['create_date']; ?></span>
 						        	</p>
-						            <?php echo $abstract.".....more"; ?>
+						            <?php echo $abstract; ?>
 						        </div>
 						    </div>
 						    <?php endforeach; ?>
@@ -86,19 +65,6 @@ $datas = get_publish_article();
 		</div>
 		
 		<!-- 頁底 -->
-		<div class="footer">
-			<div class="container">
-				<!-- 建立第一個 row 空間，裡面準備放格線系統 -->
-				<div class="row">
-					<!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
-					<div class="col-xs-12">
-						<p class="text-center">
-							&copy; <?php echo date("Y")?> Will.
-						</p>
-					</div>
-				</div>
-			</div>
-			
-		</div>
+    <?php include_once 'footer.php'; ?>
 	</body>
 </html>
